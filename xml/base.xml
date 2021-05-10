@@ -6,6 +6,7 @@
   <cputune>
     <shares>2048</shares>
   </cputune>
+  <cpu mode='host-model' />
   <os>
     <type arch='x86_64' >hvm</type>
     <boot dev='hd'/>
