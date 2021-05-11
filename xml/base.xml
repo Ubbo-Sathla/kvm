@@ -6,7 +6,7 @@
   <cputune>
     <shares>2048</shares>
   </cputune>
-  <cpu mode='host-model' />
+  <cpu mode='host-passthrough' />
   <os>
     <type arch='x86_64' >hvm</type>
     <boot dev='hd'/>
@@ -29,9 +29,11 @@
     </disk>
     <interface type='network'>
       <source network='default'/>
+      <model type='virtio'/>
     </interface>
     <interface type='network'>
       <source network='openstack'/>
+      <model type='virtio'/>
     </interface>
     <graphics type='vnc' port='5900' autoport='yes' listen='0.0.0.0' passwd='111111' />
   </devices>
