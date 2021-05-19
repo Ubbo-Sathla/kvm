@@ -35,6 +35,12 @@
       <source network='openstack'/>
       <model type='virtio'/>
     </interface>
+    <serial type='pty'>
+      <target port='0'/>
+    </serial>
+    <console type='pty'>
+      <target type='serial' port='0'/>
+    </console>
     <graphics type='vnc' port='5900' autoport='yes' listen='0.0.0.0' passwd='111111' />
   </devices>
 </domain>
