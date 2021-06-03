@@ -2,7 +2,7 @@
 
 VM_NAME=$1
 
-BASE_XML=/opt/kvm/xml/base.xml
+BASE_XML=/opt/kvm/xml/ovs-base.xml
 VM_XML=/opt/vm/xml/$VM_NAME.xml
 
 # create vm
