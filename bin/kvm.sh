@@ -15,8 +15,11 @@ CLOUD_INIT=/opt/vm/cloud-init/cloud-init.iso
 # qemu-img create -b /opt/vm/imgs/CentOS-7-x86_64-GenericCloud-2009.qcow2 -f qcow2 /opt/vm/disks/$VM_NAME.qcow2 100G
 qemu-img create -b $BASE_IMG  -f qcow2 $VM_IMG 100G
 
+cp /opt/kvm/cloud-init/network_config_static.cfg /opt/kvm/cloud-init/network_config_static.cfg.tmp
 
-cloud-localds -v --network-config=/opt/kvm/cloud-init/network_config_static.cfg $CLOUD_INIT   /opt/kvm/cloud-init/cloud.cfg
+sed -i "s#IP#$2#g" /opt/kvm/cloud-init/network_config_static.cfg.tmp
+
+cloud-localds -v --network-config=/opt/kvm/cloud-init/network_config_static.cfg.tmp $CLOUD_INIT   /opt/kvm/cloud-init/cloud.cfg
 
 cp $BASE_XML $VM_XML
 
