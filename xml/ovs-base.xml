@@ -17,7 +17,7 @@
       <source file='/opt/vm/disks/base-vm.qcow2'/>
       <backingStore type='file'>
         <format type='qcow2'/>
-        <source file='/opt/vm/imgs/CentOS-7-x86_64-GenericCloud-2009.qcow2'/>
+        <source file='base-img'/>
         <backingStore/>
       </backingStore>
       <target dev='vda' bus='virtio'/>
