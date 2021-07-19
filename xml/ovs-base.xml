@@ -1,5 +1,5 @@
 <domain type='kvm' >
-  <name>base-vm</name>
+  <name>vm-name</name>
   <memory unit='KiB'>4194304</memory>
   <currentMemory unit='KiB'>4194304</currentMemory>
   <vcpu placement='static'>2</vcpu>
@@ -14,7 +14,7 @@
   <devices>
     <disk type='file' device='disk'>
       <driver  type='qcow2' />
-      <source file='/opt/vm/disks/base-vm.qcow2'/>
+      <source file='vm-img'/>
       <backingStore type='file'>
         <format type='qcow2'/>
         <source file='base-img'/>
@@ -23,21 +23,24 @@
       <target dev='vda' bus='virtio'/>
     </disk>
     <disk type='file' device='cdrom'>
-      <source file='/opt/vm/cloud-init/cloud-init.iso'/>
+      <source file='cloud-init'/>
       <target dev='hdb' bus='ide'/>
       <readonly/>
     </disk>
     <interface type='bridge'>
       <source bridge='br0'/>
       <virtualport type='openvswitch'/>
+      <model type='virtio'/>
     </interface>
     <interface type='bridge'>
       <source bridge='br1'/>
       <virtualport type='openvswitch'/>
+      <model type='virtio'/>
     </interface>
     <interface type='bridge'>
       <source bridge='br2'/>
       <virtualport type='openvswitch'/>
+      <model type='virtio'/>
     </interface>
     <serial type='pty'>
       <target port='0'/>
